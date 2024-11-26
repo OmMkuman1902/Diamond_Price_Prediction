@@ -27,7 +27,7 @@ function global:deactivate ([switch]$NonDestructive) {
 
 deactivate -nondestructive
 
-$env:VIRTUAL_ENV="D:\DataSciProjectsEnTOEn\heart_disease_Pred\Heart_disease_prediction\projenv"
+$env:VIRTUAL_ENV="D:\DataSciProjectsEnTOEn\diamond_price_pred\Diamond_Price_Prediction\projenv"
 
 if (! $env:VIRTUAL_ENV_DISABLE_PROMPT) {
     # Set the prompt to include the env name

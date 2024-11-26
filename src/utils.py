@@ -52,7 +52,6 @@ def evaluate_model(Xtrain,ytrain,Xtest,ytest,models):
             recall_list.append(recall)
             f1_list.append(f1)
             
-            
 
             #print("=" * 35)
             #print('\n')
