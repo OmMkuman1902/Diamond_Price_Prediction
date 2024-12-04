@@ -1,0 +1,9 @@
+pandas
+seaborn
+numpy
+matplotlib
+dill
+xgboost
+scikit-learn
+#-e .
+# to run this file and install packages "install -r requirements.txt"
