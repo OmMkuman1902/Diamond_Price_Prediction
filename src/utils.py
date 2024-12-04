@@ -3,7 +3,30 @@ import dill
 import pandas as pd
 import numpy as np
 from src.exception import CustomException
-from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score, f1_score, confusion_matrix
+from src.logger import logging
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+from dotenv import load_dotenv
+import pymysql
+
+load_dotenv()
+
+host=os.getenv("host")
+user=os.getenv("user")
+password=os.getenv("password")
+db=os.getenv("db")
+
+def read_sql_data():
+    logging.info("reading SQL database")
+    try:
+        mydb=pymysql.connect(host=host,user=user,password=password,db=db)
+        logging.info("connection established")
+
+        df=pd.read_sql_query("select * from diamonds",mydb)
+        print(df.head())
+
+        return df
+    except Exception as e:
+        raise CustomException(e,sys)
 
 
 def save_obj(file_path,obj):
@@ -21,46 +44,52 @@ def save_obj(file_path,obj):
 
 def evaluate_model(Xtrain,ytrain,Xtest,ytest,models):
     try:
-        acc_dict={}
+        def evaluate_model(true, predicted):
+                mae = mean_absolute_error(true, predicted)
+                mse = mean_squared_error(true, predicted)
+                rmse = np.sqrt(mean_squared_error(true, predicted))
+                r2_square = r2_score(true, predicted)
+                return mae, rmse, r2_square
         model_list = []
-        accuracy_list = []
-        precision_list = []
-        recall_list = []
-        f1_list = []
-        for model_name, model in models.items():
+        r2_list =[]
+        r2_dict={}
 
-            model.fit(Xtrain, ytrain)
-            y_pred_train = model.predict(Xtrain)
-            y_pred = model.predict(Xtest)
+        for i in range(len(list(models))):
+            model = list(models.values())[i]
+            model.fit(Xtrain, ytrain) # Train model
 
-            test_accuracy = accuracy_score(ytest, y_pred)
-            precision = precision_score(ytest, y_pred)
-            recall = recall_score(ytest, y_pred)
-            f1 = f1_score(ytest, y_pred)
-            confusion_mat = confusion_matrix(ytest, y_pred)
-
-            '''print(f"Model: {model_name}")
-            print("Testing Accuracy: ", test_accuracy)
-            print("Precision: ",precision)
-            print("Recall: ",recall)
-            print("F1 Score: ",f1)
-            print("Confusion Matrix:\n ",confusion_mat)'''
-
-
-            model_list.append(model_name)
-            accuracy_list.append(test_accuracy)
-            precision_list.append(precision)
-            recall_list.append(recall)
-            f1_list.append(f1)
+            # Make predictions
+            y_train_pred = model.predict(Xtrain)
+            y_test_pred = model.predict(Xtest)
             
+            # Evaluate Train and Test dataset
+            model_train_mae , model_train_rmse, model_train_r2 = evaluate_model(ytrain, y_train_pred)
 
-            #print("=" * 35)
-            #print('\n')
+            model_test_mae , model_test_rmse, model_test_r2 = evaluate_model(ytest, y_test_pred)
 
+            
+            print(list(models.keys())[i])
+            model_list.append(list(models.keys())[i])
+            
+            print('Model performance for Training set')
+            print("- Root Mean Squared Error: {:.4f}".format(model_train_rmse))
+            print("- Mean Absolute Error: {:.4f}".format(model_train_mae))
+            print("- R2 Score: {:.4f}".format(model_train_r2))
+
+            print('----------------------------------')
+            
+            print('Model performance for Test set')
+            print("- Root Mean Squared Error: {:.4f}".format(model_test_rmse))
+            print("- Mean Absolute Error: {:.4f}".format(model_test_mae))
+            print("- R2 Score: {:.4f}".format(model_test_r2))
+            r2_list.append(model_test_r2)
+            
+            print('='*35)
+            print('\n')
             
             for i in range(len(model_list)):
-                acc_dict.update({model_list[i]:accuracy_list[i]}) 
+                r2_dict.update({model_list[i]:r2_list[i]}) 
 
-        return acc_dict
+        return r2_dict
     except:
         pass

@@ -1,18 +1,22 @@
-from sklearn.svm import SVC
-from xgboost import XGBClassifier
-from sklearn.naive_bayes import GaussianNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import AdaBoostClassifier
-from sklearn.ensemble import GradientBoostingClassifier
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, precision_score, recall_score, f1_score, confusion_matrix
-from src.exception import CustomException
-from sklearn.model_selection import train_test_split
+# Basic Import
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt 
+import seaborn as sns
+# Modelling
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor,AdaBoostRegressor
+from sklearn.svm import SVR
+from sklearn.linear_model import LinearRegression, Ridge,Lasso
+from sklearn.metrics import r2_score, mean_absolute_error, mean_squared_error
+from sklearn.model_selection import RandomizedSearchCV
+from xgboost import XGBRegressor
+import warnings
 import os,sys
 from src.logger import logging
+from src.exception import CustomException
 from src.utils import save_obj
 from dataclasses import dataclass
 from src.utils import evaluate_model
@@ -37,17 +41,14 @@ class Model_trainer():
             )
 
             models={
-                    'Logistic Regression':LogisticRegression(),
-                    'Naive Bayes':GaussianNB(),
-                    'AdaBoost':AdaBoostClassifier(),
-                    'Gradient Boosting':GradientBoostingClassifier(),
-                    'KNN':KNeighborsClassifier(),
-                    'Random Forest Classfier':RandomForestClassifier(n_estimators=20, random_state=12,max_depth=5),
-                    'XG Boost':XGBClassifier(learning_rate=0.01, n_estimators=25, max_depth=15,gamma=0.6, subsample=0.52,colsample_bytree=0.6,seed=27, 
-                                    reg_lambda=2, booster='dart', colsample_bylevel=0.6, colsample_bynode=0.5),
-                    'K Nearest Neighbors':KNeighborsClassifier(n_neighbors=10),
-                    'Decision Tree':DecisionTreeClassifier(criterion = 'entropy',random_state=0,max_depth = 6),
-                    'Support Vector Machine':SVC(kernel='rbf', C=2)
+                    "Linear Regression": LinearRegression(),
+                    "Lasso": Lasso(),
+                    "Ridge": Ridge(),
+                    "K-Neighbors Regressor": KNeighborsRegressor(),
+                    "Decision Tree": DecisionTreeRegressor(),
+                    "Random Forest Regressor": RandomForestRegressor(),
+                    "XGBRegressor": XGBRegressor(), 
+                    "AdaBoost Regressor": AdaBoostRegressor()
                     }
             
             model_report :dict=evaluate_model(Xtrain=Xtrain,ytrain=ytrain,Xtest=Xtest,ytest=ytest,models=models)

@@ -23,26 +23,29 @@ class DataTransformation():
         try:
             logging.info("data trasformation started")
 
-            num_features=['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak', 'slope', 'ca', 'thal']
-            #cat_feature=[]
+            num_features=["carat","depth","table","x","y","z"]
+            cat_feature=["cut","color","clarity"]
 
 
 
             #Creating numerical Pipeline and categorical pipeline
             num_pipeline=Pipeline(
                 steps=[
-                    ('imputer',SimpleImputer(strategy='mean')),#if any missing values then replace it with mean if no outliers if not then replace it with median
+                    ('imputer',SimpleImputer(strategy='median')),#if any missing values then replace it with mean if no outliers if not then replace it with median
                     ('scaler',StandardScaler())
-                    ],
+                    ]
+                )
 
-            #cat_pipeline=Pipeline(
-                #steps=[
-                    #('imputer',SimpleImputer(strategy='most_frequent')),
-                    #('encoding',OneHotEncoder()),
-                    #('scaler',StandardScaler())])
-                    # here there are no categorical features so not using it
-            )
-            logging.info("scaling num column through pipeline completed")
+            cat_pipeline=Pipeline(
+                steps=[
+                    ('imputer',SimpleImputer(strategy='most_frequent')),
+                    ('encoding',OneHotEncoder()),
+                    ('scaler',StandardScaler(with_mean=False))
+                    ]
+                )
+                    
+            
+            logging.info("scaling num  and cat column through pipeline completed")
 
 
 
@@ -50,9 +53,8 @@ class DataTransformation():
             # combining the Categoricatl and numerical pipeline using columnTransformer
             preprocessor=ColumnTransformer(
                 [
-                    ('num_pipeline',num_pipeline,num_features)
-                    #('cat_pipeline',cat_pipeline,cat_features)
-
+                    ('num_pipeline',num_pipeline,num_features),
+                    ('cat_pipeline',cat_pipeline ,cat_feature)
                 ]
             )
             logging.info("combining pipeline complete completed")
@@ -72,9 +74,8 @@ class DataTransformation():
 
             preprocessing_obj=self.get_dataTransformer_obj()
 
-            target_col='target'
-            numerical_col=['age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach','exang', 'oldpeak', 'slope', 'ca', 'thal']
-
+            target_col='price'
+            numerical_col=["carat","depth","table","x","y","z"]
             input_feature_train_df=train_df.drop(columns=[target_col],axis=1)
             target_feature_train_df=train_df[target_col]
             

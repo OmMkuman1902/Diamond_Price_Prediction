@@ -8,6 +8,7 @@ from src.components.data_transformation import DataTranformationConfig
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import ModelTrainerConfig
 from src.components.model_trainer import Model_trainer
+from src.utils import read_sql_data
 
  
 @dataclass
@@ -26,10 +27,10 @@ class DataIngestion():
         logging.info("entered the data ingestion methods or components")
 
     def initiate_data_ingestion(self):
-        logging.info("data ingestion initiated")
+        logging.info("data ingestion from DB initiated")
         try:
-            df=pd.read_csv('diamonds.csv')
-            logging.info("read the dataset")
+            df=read_sql_data()
+            logging.info("read the dataset done")
             os.makedirs(os.path.dirname(self.ingestion_config.test_data_path),exist_ok=True)
             #Create Directories: Ensures that the directory artifact exists to save data files, creating it if it doesn’t already exist.
             
@@ -58,8 +59,8 @@ if __name__=='__main__':
     train_data,test_data=obj.initiate_data_ingestion()
 
     #
-    #data_transformation=DataTransformation()
-    #train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
+    data_transformation=DataTransformation()
+    train_arr,test_arr,_=data_transformation.initiate_data_transformation(train_data,test_data)
 
-    #model_train=Model_trainer()
-    #print(model_train.initiate_model_trainer(train_arr,test_arr))
+    model_train=Model_trainer()
+    print(model_train.initiate_model_trainer(train_arr,test_arr))

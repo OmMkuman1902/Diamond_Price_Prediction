@@ -5,5 +5,8 @@ matplotlib
 dill
 xgboost
 scikit-learn
+python-dotenv
+mysql-connector-python
+pymysql
 #-e .
 # to run this file and install packages "install -r requirements.txt"
