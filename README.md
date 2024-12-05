@@ -7,6 +7,7 @@
 * [About the data](#About-the-data)
 * [Technologies Used](#Technologies-Used)
 * [Installation Steps](#Installation-Steps)
+* [Directory Structure](#Directory-Structure)
 * [EDA and Data Modeling](#EDA-and-Data-Modeling)
 * [Comaparing Data Models](#Comaparing-Data-Models)
 	
@@ -196,3 +197,23 @@ pip install -r requirements.txt
 python app.py
 
 ```
+## Durectory Structure:
+├── project_root/
+    ├──src/
+        ├── __init__.py/
+        ├── components/
+				├── __init__.py/
+				├── data_ingesion.py/
+				├── data_transformation.py/
+				├── data_modeler.py/     
+        ├── pipeline/
+				├── __init__.py/
+				├── predict_pipeline.py/
+				├── train_pipeline.py/		
+        ├── logger.py/
+        ├── exception.py/
+        ├── utils.py/
+	├── notebooks/
+	├── app.py/
+    ├── requirements.txt/
+    ├── setup.py/
