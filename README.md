@@ -197,19 +197,20 @@ pip install -r requirements.txt
 python app.py
 
 ```
-## Durectory Structure:
+## Directory Structure:
 ├── project_root/
+    
     ├──src/
         ├── __init__.py/
         ├── components/
-				├── __init__.py/
-				├── data_ingesion.py/
-				├── data_transformation.py/
-				├── data_modeler.py/     
+		├── __init__.py/
+		├── data_ingesion.py/
+		├── data_transformation.py/
+                ├── data_modeler.py/     
         ├── pipeline/
-				├── __init__.py/
-				├── predict_pipeline.py/
-				├── train_pipeline.py/		
+		├── __init__.py/
+		├── predict_pipeline.py/
+		├── train_pipeline.py/		
         ├── logger.py/
         ├── exception.py/
         ├── utils.py/
