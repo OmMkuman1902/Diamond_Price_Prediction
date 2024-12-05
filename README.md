@@ -3,12 +3,12 @@
 - [LinkedIn]([www.linkedin.com/in/om-kuman-25805a251](http://www.linkedin.com/in/om-kuman-25805a251))
 
 ## Tables of content:
-	* [Overview](#Overview)
-	* [About the data](#About the data)
-	* [Technologies Used](#Technologies Used)
-	* [Installation Steps](#Installation Steps)
-	* [EDA and Data Modeling](#EDA and Data Modeling)
-	* [Comaparing Data Models](#Comaparing Data Models)
+* [Overview](#Overview)
+* [About the data](#About-the-data)
+* [Technologies Used](#Technologies-Used)
+* [Installation Steps](#Installation-Steps)
+* [EDA and Data Modeling](#EDA-and-Data-Modeling)
+* [Comaparing Data Models](#Comaparing-Data-Models)
 	
 	
 	
@@ -39,10 +39,7 @@ These predictions are validated against test data to confirm the reliability of 
 The project includes a ****Flask-based web application****, serving as an intuitive user interface where buyers 
 and sellers can input diamond specifications and receive real-time price predictions. The application is 
 integrated with a Continuous Integration/Continuous Deployment (CD) pipeline, ensuring smooth updates 
-and maintenance of both the machine learning model and the web platform. This pipeline automates processes like 
-testing, building, deploying  and ensuring consistent performance.
-
-
+and maintenance of both the machine learning model and the web platform. This pipeline automates processes like testing, building, deploying  and ensuring consistent performance.
 
 
 ## About the Data:
@@ -51,27 +48,28 @@ The dataset The goal is to predict the price of a given diamond (Regression Anal
 
 There are 10 independent variables (including id):
 
-- carat: Carat (ct.) refers to the unique unit of weight measurement used exclusively to weigh gemstones and diamonds.
+- ****carat****: Carat (ct.) refers to the unique unit of weight measurement used exclusively to weigh gemstones and diamonds.
 
-- cut: Quality of Diamond Cut
+- ****cut****: Quality of Diamond Cut
 
-- color: Color of Diamond
+- ****color****: Color of Diamond
 
-- clarity: Diamond clarity is a measure of the purity and rarity of the stone, graded by the visibility of these characteristics under 10-power magnification.
+- ****clarity****: Diamond clarity is a measure of the purity and rarity of the stone, graded by the 
+    visibility of these characteristics under 10-power magnification.
 
-- depth: The depth of the diamond is its height (in millimetres) measured from the culet (bottom tip) to the table (top surface)
+- ****depth****: The depth of the diamond is its height (in millimetres) measured from the culet (bottom tip) to the table (top surface)
 
-- table: A diamond's table is the facet which can be seen when the stone is viewed face up.
+- ****table****: A diamond's table is the facet which can be seen when the stone is viewed face up.
 
-- x : Diamond X dimension
+- ****x****: Diamond X dimension
 
-- y: Diamond Y dimension
+- ****y****: Diamond Y dimension
 
-- z: Diamond Z dimension
+- ****z****: Diamond Z dimension
 
 ## Target variable:
 
-- price: Price of the Diamond.
+- ****price****: Price of the Diamond.
 
 
 ## Technologies Used:
