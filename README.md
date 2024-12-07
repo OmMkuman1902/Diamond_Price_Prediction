@@ -1,6 +1,6 @@
 # Diamond - Price - Prediction:
 
-- [LinkedIn]([www.linkedin.com/in/om-kuman-25805a251](http://www.linkedin.com/in/om-kuman-25805a251))
+- [LinkedIn]([https://www.linkedin.com/in/om-kuman-25805a251/]))
 
 ## Tables of content:
 * [Overview](#Overview)
