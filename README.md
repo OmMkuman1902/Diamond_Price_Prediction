@@ -222,5 +222,5 @@ python app.py
 
 
 ## Visual Insights of Data:
-1) ****Preview of Data****
-[<img target="_blank" src="static\builtin\Top_5_data.png" width=400>]
+ ### 1) Preview of Data
+   <img target="_blank" src="static\builtin\Top_5_data.png" width=400>
