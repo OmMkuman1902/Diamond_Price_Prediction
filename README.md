@@ -12,7 +12,8 @@
 * [Comaparing Data Models](#Comaparing-Data-Models)
 	
 	
-	
+   <img target="_blank" src="static\builtin\napkin-selection.png" width=900>
+
 
 
 
