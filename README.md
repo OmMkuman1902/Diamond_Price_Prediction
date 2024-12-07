@@ -260,7 +260,7 @@ python app.py
 
 - There are also more indepth exploration, you can check my notebook folder for the same.
 
-### 4) Comaparing Data Models:
+## 4) Comaparing Data Models:
         - Model Accuracies :
    <img target="_blank" src="static\builtin\model_acc.png" width=400>
 
