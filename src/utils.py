@@ -1,5 +1,6 @@
 import os,sys
 import dill
+import pickle
 import pandas as pd
 import numpy as np
 from src.exception import CustomException
@@ -36,11 +37,21 @@ def save_obj(file_path,obj):
         os.makedirs(dir_path,exist_ok=True)
 
         with open(file_path,'wb') as file_obj:
-            dill.dump(obj,file_obj)
+            pickle.dump(obj,file_obj)
 
     except Exception as e:
         raise CustomException(e,sys)
+   
     
+def load_obj(file_path):
+    try:
+        with open(file_path,'rb') as file_obj:
+            return pickle.load(file_obj)
+        
+    except Exception as e:
+        raise CustomException(e,sys)
+
+
 
 def evaluate_model(Xtrain,ytrain,Xtest,ytest,models):
     try:
@@ -88,7 +99,7 @@ def evaluate_model(Xtrain,ytrain,Xtest,ytest,models):
             print('\n')
             
             for i in range(len(model_list)):
-                r2_dict.update({model_list[i]:r2_list[i]}) 
+                r2_dict.update({models[model_list[i]]:r2_list[i]}) 
 
         return r2_dict
     except:

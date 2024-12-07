@@ -57,12 +57,15 @@ class Model_trainer():
 
             best_model_acc=max(sorted(model_report.values()))
             best_model_name=list(model_report.keys())[list(model_report.values()).index(best_model_acc)]
+        
 
             logging.info("best model with accuracy found")
+            print("the best model name = ",{type(best_model_name)})
 
             save_obj(
                 file_path=self.Model_trainer_config.trained_model_file_path,
                 obj=best_model_name
+                
             )
 
             return(

@@ -8,5 +8,6 @@ scikit-learn
 python-dotenv
 mysql-connector-python
 pymysql
+flask
 #-e .
 # to run this file and install packages "install -r requirements.txt"

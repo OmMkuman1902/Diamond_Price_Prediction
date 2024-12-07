@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Input Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        label {
+            flex: 1;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select {
+            flex: 2;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        input:focus, select:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Diamond Details</h2>
+        <form action="{{url_for('predict_datapoint')}}" method="post">
+            <div class="form-group">
+                <label for="carat">Carat</label>
+                <input type="number" id="carat" name="carat" placeholder="Enter carat ( 0.2 - 5.0 )" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="cut">Cut</label>
+                <select id="cut" name="cut" required>
+                    <option value="">Select cut</option>
+                    <option value="Premium">Premium</option>
+                    <option value="Very Good">Very Good</option>
+                    <option value="Idel">Very Good</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="color">Color</label>
+                <select id="color" name="color" required>
+                    <option value="">Select color</option>
+                    <option value="D">D</option>
+                    <option value="E">E</option>
+                    <option value="F">F</option>
+                    <option value="G">G</option>
+                    <option value="H">H</option>
+                    <option value="I">I</option>
+                    <option value="J">J</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="clarity">Clarity</label>
+                <select id="clarity" name="clarity" required>
+                    <option value="">Select clarity</option>
+                    <option value="IF">IF</option>
+                    <option value="I1">I1</option>
+                    <option value="VVS1">VVS1</option>
+                    <option value="VVS2">VVS2</option>
+                    <option value="VS1">VS1</option>
+                    <option value="VS2">VS2</option>
+                    <option value="SI1">SI1</option>
+                    <option value="SI2">SI2</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="depth">Depth</label>
+                <input type="number" id="depth" name="depth" placeholder="Enter depth ( 43 - 79 )" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="table">Table</label>
+                <input type="number" id="table" name="table" placeholder="Enter table ( 43 - 95 )" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="x">X</label>
+                <input type="number" id="x" name="x" placeholder="Enter x dimension ( 0 - 10 )" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="y">Y</label>
+                <input type="number" id="y" name="y" placeholder="Enter y dimension ( 0 - 58 )" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="z">Z</label>
+                <input type="number" id="z" name="z" placeholder="Enter z dimension ( 0 - 31 )" step="0.01" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+            <div class="form-group"><br>
+                <label for="z">Price of the Diamond </label><br>
+                {{result}}
+            </div>
+        </form>
+    </div>
+</body>
+</html>
