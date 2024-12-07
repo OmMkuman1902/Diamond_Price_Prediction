@@ -120,6 +120,12 @@ There are 10 independent variables (including id):
 	- Used for plotting data distributions, trends, and model performance metrics.
 
 
+
+
+   <img target="_blank" src="static\builtin\napkin-selection (1).png" width=900>
+
+
+
 # Getting Started
 
 To set up a local copy, follow these simple steps. Significantly depends on a variety of circumstances. This research intends to use machine learning techniques to accurately estimate diamond values, providing significant information to both buyers and sellers in the diamond market.
