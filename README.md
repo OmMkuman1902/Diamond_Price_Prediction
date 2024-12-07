@@ -224,3 +224,30 @@ python app.py
 ## Visual Insights of Data:
  ### 1) Preview of Data
    <img target="_blank" src="static\builtin\Top_5_data.png" width=400>
+
+ ### 2) Statistical Information:
+   <img target="_blank" src="static\builtin\Describe.png" width=400>
+      
+	  - Basic statistics about the numercal features of the dataset .
+
+ ### 3) Visualization on categorical features and Observations :
+	- Cut of Diamond Feature :
+   <img target="_blank" src="static\builtin\Cut_per.png" width=400>
+
+	    
+	- Color of Diamond Feature :
+   <img target="_blank" src="static\builtin\color_per.png" width=400>
+   
+
+   - Clarity of Diamond Feature :
+   <img target="_blank" src="static\builtin\Clarity_per.png" width=400>
+    
+
+
+
+
+
+
+
+
+
