@@ -16,13 +16,6 @@
 
 
 
-
-
-
-
-
-
-
 ## Overview:
 
 ****The Diamond Price Prediction**** project is an end-to-end machine learning solution designed to forecast
@@ -231,6 +224,9 @@ python app.py
 	  - Basic statistics about the numercal features of the dataset .
 
  ### 3) Visualization on categorical features and Observations :
+        - Distribution of Output Feature( Price ) :
+   <img target="_blank" src="static\builtin\log_dist.png" width=900>  
+
         - Cut of Diamond Feature :
    <img target="_blank" src="static\builtin\Cut_per.png" width=900>
 
@@ -241,10 +237,28 @@ python app.py
 
         - Clarity of Diamond Feature :
    <img target="_blank" src="static\builtin\Clarity_per.png" width=900>
+
     
+	    - Clarity according to Price :
+   <img target="_blank" src="static\builtin\Clarity_vs_price.png" width=900>
 
 
+        - Cut according to all numeric features  :
+   <img target="_blank" src="static\builtin\Cut_vs_numeric.png" width=900>
 
+
+        - Cut according to Color  :
+   <img target="_blank" src="static\builtin\Cut_vs_color.png" width=900>
+
+
+        - Color according to Clarity  :
+   <img target="_blank" src="static\builtin\Color_vs_clarity.png" width=900>
+
+
+        - Summary of Color Vs Price  :
+   <img target="_blank" src="static\builtin\Summary_Color.png" width=1100>
+
+- There are also more indepth exploration, you can check my notebook folder for the same.
 
 
 
