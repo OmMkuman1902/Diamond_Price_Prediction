@@ -8,7 +8,7 @@
 * [Technologies Used](#Technologies-Used)
 * [Installation Steps](#Installation-Steps)
 * [Directory Structure](#Directory-Structure)
-* [EDA and Data Modeling](#EDA-and-Data-Modeling)
+* [Visual Insights of Data](#Visual-Insights-of-Data)
 * [Comaparing Data Models](#Comaparing-Data-Models)
 	
 	
@@ -218,3 +218,9 @@ python app.py
 	├── app.py/
     ├── requirements.txt/
     ├── setup.py/
+
+
+
+## Visual Insights of Data:
+1) ****Preview of Data****
+[<img target="_blank" src="static\builtin\Top_5_data.png" width=400>]
