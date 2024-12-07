@@ -262,7 +262,7 @@ python app.py
 
 ### 4) Comaparing Data Models:
         - Model Accuracies :
-   <img target="_blank" src="static\builtin\model_acc.png" width=600>
+   <img target="_blank" src="static\builtin\model_acc.png" width=400>
 
         - Regression Graph  :
    <img target="_blank" src="static\builtin\reg_graph.png" width=600>
